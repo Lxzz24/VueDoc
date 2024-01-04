@@ -8,7 +8,7 @@ export default sidebar({
             prefix: "0-article/",
             link: "0-article/",
             // 可选的, 设置分组是否可以折叠，默认值是 false,
-            collapsible: true,
+            // collapsible: true,
             children: [
                 {
                     text: "💭 阅读",
