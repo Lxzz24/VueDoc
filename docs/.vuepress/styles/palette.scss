@@ -1,0 +1,64 @@
+// you can change colors here
+$theme-color: #3eaf7c, #096dd9, #c0392b, #d35400, #f39c12, #27ae60, #16a085,
+  #2980b9, #8e44ad, #2c3e50, #7f8c8d !default;
+
+$text-color: (
+  light: #2c3e50,
+  dark: #9e9e9e,
+) !default;
+$bg-color: (
+  light: #fff,
+  dark: #0d1117,
+) !default;
+$bg-color-secondary: (
+  light: #f8f8f8,
+  dark: #161b22,
+) !default;
+$bg-color-tertiary: (
+  light: #efeef4,
+  dark: #21262c,
+) !default;
+$border-color: (
+  light: #eaecef,
+  dark: #30363d,
+) !default;
+
+// shadow
+$box-shadow: (
+  light: #f0f1f2,
+  dark: #282a32,
+) !default;
+$card-shadow: (
+  light: rgb(0 0 0 / 15%),
+  dark: rgb(0 0 0 / 30%),
+) !default;
+
+// constants
+$black: (
+  light: #000,
+  dark: #fff,
+);
+$dark-grey: (
+  light: #666,
+  dark: #999,
+);
+$light-grey: (
+  light: #999,
+  dark: #666,
+);
+$white: (
+  light: #fff,
+  dark: #000,
+);
+$grey3: (
+  light: #333,
+  dark: #bbb,
+);
+$grey12: (
+  light: #bbb,
+  dark: #333,
+);
+
+$font-family: '-apple-system, Menlo, "Microsoft YaHei"';
+$font-family-heading: 'Consolas, -apple-system, Georgia Pro, Crimson, Georgia, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", STHeiti, "Microsoft YaHei", SimSun, sans-serif';
+$font-family-mono: "Menlo, Consolas";

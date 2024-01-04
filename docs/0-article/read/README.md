@@ -1,0 +1,11 @@
+---
+title: 阅读
+---
+
+- [七个对我最好的职业建议（精简版）](/0-article/read/七个对我最好的职业建议（精简版）.md)
+- [扎克伯格的26页PPT](/0-article/read/扎克伯格的26页PPT.md)
+- [大数据已死](/0-article/read/20230303大数据已死.md)
+- ["我爸对计算机行业的看法，是否准确？"-知乎](/0-article/read/20230323.md)
+- [4000weeks](/0-article/read/4000weeks.md)
+- [左耳朵耗子-陈皓](/0-article/read/左耳朵耗子-陈皓.md)
+
