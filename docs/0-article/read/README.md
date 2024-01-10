@@ -8,4 +8,4 @@ title: 阅读
 - ["我爸对计算机行业的看法，是否准确？"-知乎](/0-article/read/20230323.md)
 - [4000weeks](/0-article/read/4000weeks.md)
 - [左耳朵耗子-陈皓](/0-article/read/左耳朵耗子-陈皓.md)
-
+- [为什么PPT不如备忘录](/0-article/read/为什么PPT不如备忘录.md)
