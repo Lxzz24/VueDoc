@@ -1,0 +1,1 @@
+import{_ as t}from"./plugin-vue_export-helper-x3n3nnut.js";import{o as s,c as o,a as e}from"./app-2rf537eJ.js";const a={},c=e("details",{class:"hint-container details"},[e("summary",null,"目录"),e("nav",{class:"table-of-contents"},[e("ul")])],-1),n=[c];function l(_,r){return s(),o("div",null,n)}const d=t(a,[["render",l],["__file","1.html.vue"]]);export{d as default};
