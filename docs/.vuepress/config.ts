@@ -6,7 +6,7 @@ export default defineUserConfig({
 
     lang: "zh-CN",
     title: "文档演示",
-    description: "vuepress-theme-hope 的文档演示",
+    description: "lxzz24 的知识库",
 
     theme,
 
