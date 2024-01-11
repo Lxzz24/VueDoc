@@ -1,4 +1,4 @@
-!> 来源：[任性的黑人](https://zhuanlan.zhihu.com/p/163826941)
+> 来源：[任性的黑人](https://zhuanlan.zhihu.com/p/163826941)
 
 ## 一、下载并安装软件 + 插件
 

@@ -262,7 +262,7 @@ tcp_wrappers=YES
 - 取消拒绝状态： firewall-cmd --panic-off
 - 查看是否拒绝： firewall-cmd --query-panic
 
-!> 那么： firewalld 如何开放一个端口呢？
+> 那么： firewalld 如何开放一个端口呢？
 
 ```
 ## 1.开放 80 端口：

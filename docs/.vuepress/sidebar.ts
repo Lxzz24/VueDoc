@@ -214,7 +214,22 @@ export default sidebar({
             prefix: "19_设计模式/",
             link: "19_设计模式/",
             collapsible: true,
-            children: ["1.md", "2.md", "3.md",
+            children: [
+                {
+                    text: "创建型模式",
+                    collapsible: true,
+                    children: ["1_1.md", "1_2.md", "1_3.md", "1_4.md", "1_5.md"]
+                },
+                {
+                    text: "结构型模式",
+                    collapsible: true,
+                    children: ["2_1.md", "2_2.md", "2_3.md", "2_4.md", "2_5.md", "2_6.md", "2_7.md"]
+                },
+                {
+                    text: "行为型模式",
+                    collapsible: true,
+                    children: ["3_1.md", "3_2.md", "3_3.md", "3_4.md", "3_5.md", "3_6.md", "3_7.md", "3_8.md", "3_9.md", "3_10.md", "3_11.md"]
+                },
             ],
         },
         {
@@ -222,7 +237,21 @@ export default sidebar({
             prefix: "20_Web开发/",
             link: "20_Web开发/",
             collapsible: true,
-            children: ["1.md", "2.md", "3.md", "4.md", "5.md", "6.md", "7.md", "8.md", "9.md", "10.md",
+            children: ["1.md", "2.md", "3.md",
+                {
+                    text: "Servlet 进阶",
+                    link: "4.md",
+                    collapsible: true,
+                    children: ["4_1.md", "4_2.md",]
+                },
+                "5.md", "6.md", "7.md",
+                {
+                    text: "使用 Filter",
+                    link: "8.md",
+                    collapsible: true,
+                    children: ["8_1.md", "8_2.md"]
+                },
+                "9.md", "10.md",
             ],
         },
         {

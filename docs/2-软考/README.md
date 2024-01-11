@@ -13,12 +13,12 @@ tag: 软考
 
 ## 视频资料
 
-!> From [zst_2001](https://space.bilibili.com/91286799)
+> From [zst_2001](https://space.bilibili.com/91286799)
 
 - [#0_资料分享](https://www.bilibili.com/video/BV1Rq4y1w7T5?spm_id_from=333.788.b_636f6d6d656e74.5)
 - [#0.5_真题分享](https://www.bilibili.com/video/BV19S4y1a7MU)
 
-?> 自取👉 [Baidu 网盘](https://pan.baidu.com/s/1FTD15rXXoR9QDns_5F8Lcg) 提取码：myvp 
+> 自取👉 [Baidu 网盘](https://pan.baidu.com/s/1FTD15rXXoR9QDns_5F8Lcg) 提取码：myvp 
 
 
 ## 上午题
