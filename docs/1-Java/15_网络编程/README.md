@@ -1,6 +1,7 @@
 ---
 title: 网络编程
-sidebarDepth: 0
+icon: "network"
+sidebarDepth: 1
 category: Java 教程
 tag: Java
 ---

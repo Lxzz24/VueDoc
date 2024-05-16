@@ -3,8 +3,8 @@ home: true
 icon: home
 title: 主页
 heroImage: /logo.svg
-bgImage: https://gxmnzl.cn/img/bg-light.jpg
-bgImageDark: https://gxmnzl.cn/img/bg-dark.jpg
+bgImage: /bg-light.jpg
+bgImageDark: /bg-dark.jpg
 bgImageStyle:
   background-attachment: fixed
   opacity: 0.8
@@ -24,6 +24,11 @@ actions:
   - text: 软考
     icon: study
     link: ./2-软考/
+
+  - text: 打卡
+    icon: card
+    link: 打卡.md
+# layout: BlogHome
 
 # highlights:
 #   - header: 易于安装

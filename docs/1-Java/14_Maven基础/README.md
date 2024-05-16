@@ -1,6 +1,7 @@
 ---
 title: Maven
-sidebarDepth: 0
+icon: "module"
+sidebarDepth: 1
 category: Java 教程
 tag: Java
 ---
@@ -10,5 +11,5 @@ Maven 是一个 Java 项目管理和构建工具，它可以定义项目结构�
 
 本章我们详细介绍如何使用 Maven。
 
-![20221123104651](assets/20221123104651.png)
+![](assets/20221123104651.png)
 

@@ -1,6 +1,7 @@
 ---
 title: 单元测试
-sidebarDepth: 0
+icon: "template"
+sidebarDepth: 1
 category: Java 教程
 tag: Java
 ---

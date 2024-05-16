@@ -1,6 +1,7 @@
 ---
 title: IO
-sidebarDepth: 0
+icon: "IO"
+sidebarDepth: 1
 category: Java 教程
 tag: Java
 ---
@@ -25,7 +26,7 @@ IO 流是一种顺序读写数据的模式，它的特点是单向流动。数�
 ![20221123100417](assets/20221123100417.png)
 
 
-## InputStream / OutputStream
+## 🍀 InputStream / OutputStream
 
 IO 流以 byte（字节）为最小单位，因此也称为字节流。例如，我们要从磁盘读入一个文件，包含 6 个字节，就相当于读入了 6 个字节的数据：
 
@@ -41,7 +42,7 @@ IO 流以 byte（字节）为最小单位，因此也称为字节流。例如，
 
 
 
-## Reader / Writer
+## 🍀 Reader / Writer
 
 如果我们需要读写的是字符，并且字符不全是单字节表示的 ASCII 字符，那么，按照 char 来读写显然更方便，这种流称为 ***字符流*** 。
 
@@ -65,7 +66,7 @@ Java 提供了 Reader 和 Writer 表示字符流，字符流传输的最小数�
 
 
 
-## 同步和异步
+## 🍀 同步和异步
 
 同步 IO 是指，读写 IO 时代码必须等待数据返回后才继续执行后续代码，它的优点是代码编写简单，缺点是 CPU 执行效率低。
 
@@ -77,7 +78,7 @@ Java 标准库的包 java.io 提供了同步 IO，而 java.nio 则是异步 IO�
 
 
 
-## 小结
+## 🍀 小结
 
 IO 流是一种流式的数据输入 / 输出模型：
 

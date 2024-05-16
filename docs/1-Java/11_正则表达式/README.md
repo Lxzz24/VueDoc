@@ -1,6 +1,7 @@
 ---
 title: 正则表达式
-sidebarDepth: 0
+icon: "regexp"
+sidebarDepth: 1
 category: Java 教程
 tag: Java
 ---

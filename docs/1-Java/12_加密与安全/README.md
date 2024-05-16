@@ -1,6 +1,7 @@
 ---
 title: 加密与安全
-sidebarDepth: 0
+icon: "safe"
+sidebarDepth: 1
 category: Java 教程
 tag: Java
 ---

@@ -1,6 +1,7 @@
 ---
 title: XML 和 JSON
-sidebarDepth: 0
+icon: "json"
+sidebarDepth: 1
 category: Java 教程
 tag: Java
 ---

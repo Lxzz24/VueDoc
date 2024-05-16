@@ -1,6 +1,7 @@
 ---
 title: Java 基础
-sidebarDepth: 0
+icon: "condition"
+sidebarDepth: 1
 category: Java 教程
 tag: Java
 ---
@@ -22,15 +23,15 @@ $程序设计 = 开发软件$
 >  4. 掌握一种语言后更易上手其他语言。  
 
 
-## 计算机硬件介绍
+## 🍀 计算机硬件介绍
 
-![image.png](assets/SE0002.png)
+![](assets/SE0002.png)
 
-![image.png](assets/SE0003.png)
+![](assets/SE0003.png)
 
 
 
-## 冯·诺依曼体系结构
+## 🍀 冯·诺依曼体系结构
 
 1. CPU（中央处理器）
 
@@ -90,7 +91,7 @@ $像素密度 = \sqrt{(长度像素数)^2 + (宽度像素数)^2} / 屏幕尺寸$
 
 
 
-## 计算机发展史的鼻祖
+## 🍀 计算机发展史的鼻祖
 
 **图灵** ：当之无愧的计算机科学和人工智能之父  
 
@@ -101,17 +102,17 @@ $像素密度 = \sqrt{(长度像素数)^2 + (宽度像素数)^2} / 屏幕尺寸$
 
 
 
-## 操作系统( `Operating System` ，即 OS)
+## 🍀 操作系统( `Operating System` ，即 OS)
 
 管理和控制计算机的活动
 
-![image.png](assets/SE0004.png)
+![](assets/SE0004.png)
 
 
 
-## 职业发展与提升
+## 🍀 职业发展与提升
 
-![image.png](assets/SE0005.png)
+![](assets/SE0005.png)
 
 
 $Education 自我学习（10\%）+ Exposure 向他人学习（20\%）+ Experience 工作中学习 （70\%）$

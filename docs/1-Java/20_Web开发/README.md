@@ -1,6 +1,7 @@
 ---
 title: Web 开发
-sidebarDepth: 0
+icon: "html"
+sidebarDepth: 1
 category: Java 教程
 tag: Java
 ---

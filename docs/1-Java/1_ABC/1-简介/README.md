@@ -1,6 +1,6 @@
 ---
 title: 简介
-sidebarDepth: 0
+sidebarDepth: 1
 category: Java 教程
 tag: Java
 ---
@@ -9,7 +9,7 @@ tag: Java
 [[toc]]
 :::
 
-## 软件开发介绍
+## 🍀 软件开发介绍
 
 $软件 = 系统软件（操作系统）+ 应用软件$
 
@@ -82,24 +82,24 @@ $机器语言（二进制代码） → 汇编语言 → 高级言（面向过程
 
 ---
 
-## 安装 JDK
+## 🍀 安装 JDK
 
 
 ### JDK (Java Development Kit) 
 
-Java 开发工具包开发工具包（ JRE + 开发工具）（有编译）
+Java 开发工具包（ JRE + 开发工具）（有编译）
 
 ### JRE (Java Runtime Environment)
 
 Java 运行环境（没编译） 
 
-![image.png](assets/SE0101.png)
+![](assets/SE0101.png)
 
 > [!warning]
 > $JDK = JRE + 开发工具集（例如 Javac 编译工具等）$  
 > $JRE = JVM + Java SE 标准类库$
 
-![image.png](assets/SE0102.png)
+![](assets/SE0102.png)
 
 > [!WARNING] 
 > $JDK > JRE > JVM$
@@ -169,7 +169,7 @@ Java 运行环境（没编译）
 ---
 
 
-## 第一个 Java 程序
+## 🍀 第一个 Java 程序
 
 ### Hello World
 
@@ -213,7 +213,7 @@ System.out.println("Hello, world!");
 
 它用来打印一个字符串到屏幕上。
 
-Java 规定，某个类定义的 `public static void main(String[] args)` 是 Java 程序的固定入口方法，因此，***Java 程序总是从 `main` 方法开始执行***。
+Java 规定，某个类定义的 `public static void main(String[] args)` 是 Java 程序的固定入口方法，因此，==***Java 程序总是从 `main` 方法开始执行***== 。
 
 注意到 Java 源码的缩进不是必须的，但是用缩进后，格式好看，很容易看出代码块的开始和结束，缩进一般是 4 个空格或者一个 tab 。
 
@@ -260,7 +260,7 @@ Hello, world!
      - 格式： `javac 源文件名.java`
    - 运行：使用 `java` 命令解释运行我们的字节码文件。 
      - 格式： `java 类名`
-2. 在一个 Java 源文件中可以声明多个 `class` ，但是 ***最多只能有一个类声明为 `public` 的***。
+2. 在一个 Java 源文件中可以声明多个 `class` ，但是 ==***最多只能有一个类声明为 `public`***== 。
    - 而且要求声明为 `public` 的类的类名必须与源文件名相同。
 3. 程序的入口是 `main()` 方法。格式是固定的。
 4. 输出语句：
@@ -287,7 +287,7 @@ Java 语言提供了大量的基础类，因此 Oracle 也为这些基础类提�
 
 ---
 
-## 使用 IDE
+## 🍀 使用 IDE
 
 ### IDE
 
@@ -311,8 +311,6 @@ Eclipse 是由 IBM 开发并捐赠给开源社区的一个 IDE ，也是目前�
 ### *IntelliJ Idea*
 
 IntelliJ Idea 是由 JetBrains 公司开发的一个功能强大的 IDE ，分为免费版和商用付费版。 JetBrains 公司的 IDE 平台也是基于 IDE 平台 + 语言插件的模式，支持 Python 开发环境、 Ruby 开发环境、 PHP 开发环境等，这些开发环境也分为免费版和付费版。
-
-见 [IDEA使用指南](/4-ToolBox/软件指南/IDEA使用指南.md)
 
 #### NetBeans
 

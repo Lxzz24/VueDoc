@@ -9,3 +9,5 @@ title: 阅读
 - [4000weeks](/0-article/read/4000weeks.md)
 - [左耳朵耗子-陈皓](/0-article/read/左耳朵耗子-陈皓.md)
 - [为什么PPT不如备忘录](/0-article/read/为什么PPT不如备忘录.md)
+- [《纳瓦尔宝典》读书笔记](/0-article/read/纳瓦尔宝典.md)
+- [入行15年，我还是觉得编程很难](/0-article/read/20240318.md)

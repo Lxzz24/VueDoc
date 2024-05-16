@@ -1,7 +1,7 @@
 ---
 title: Java 教程
 icon: java
-sidebarDepth: 0
+sidebarDepth: 1
 author: liaoxuefeng
 ---
 

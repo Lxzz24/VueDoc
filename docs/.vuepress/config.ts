@@ -5,7 +5,7 @@ export default defineUserConfig({
     base: "/VueDoc/",
 
     lang: "zh-CN",
-    title: "文档演示",
+    title: "BLOG",
     description: "lxzz24 的知识库",
 
     theme,

@@ -1,1 +1,117 @@
 // place your custom styles here
+h1 {
+  font-weight: bold;
+  text-shadow: 5px 5px 5px #002c7eab;
+  color: #486fb8;
+  // color: #4169e1;
+  // 手札体-简
+  font-family: "Hannotate SC", Georgia, Tahoma, Arial, "Times New Roman", sans-serif;
+}
+h2 {
+  text-shadow: 5px 5px 5px #0c4d28cb;
+  height: 1.5em;
+  color: #2e8b57; // 海洋绿
+  // 娃娃体
+  font-family: "Wawati SC", Georgia, Tahoma, Arial, "Hanzipen SC", "Times New Roman", sans-serif;
+}
+h3 {
+  color: #ff4500;
+  text-shadow: 5px 5px 5px #750000a7;
+  height: 1.5em;
+  // 娃娃体
+  font-family: "Wawati SC", Georgia, Tahoma, Arial, "Hanzipen SC", "Times New Roman", sans-serif;
+}
+h4,
+h5,
+h6 {
+  color: rgb(171, 82, 230);
+  height: 1.5em;
+  text-shadow: 5px 5px 5px rgba(59, 0, 98, 0.5);
+  font-family: "Hannotate SC", Georgia, Tahoma, Arial, "Times New Roman", sans-serif;
+}
+
+code {
+  // 手札体-简
+  font-family: "Comic Sans MS", Georgia, Tahoma, Arial, sans-serif;
+  font-size: 13px;
+  color: #004904;
+  // color: rgba(255, 127, 80); // 珊瑚色
+  background-color: #46bf7a !important;
+}
+strong {
+  font-size: 16px;
+  color: #ff4500; // 橙红色
+  // 手札体-简
+  font-family: "Hannotate SC", Georgia, Tahoma, Arial, sans-serif;
+}
+
+em {
+  color: #2e8b57;
+  font-size: 16px;
+  font-weight: bold;
+  //color: #32cd32; // 酸橙绿
+  // 手札体-简
+  font-family: "Hannotate SC", Georgia, Tahoma, Arial, sans-serif;
+}
+u {
+  font-weight: bold;
+  font-size: 16px;
+  color: #6495ed;
+  // 手札体-简
+  font-family: "Hannotate SC", Georgia, Tahoma, Arial, sans-serif;
+}
+s {
+  font-size: 16px;
+  font-style: italic;
+  color: #ffd700;
+}
+
+blockquote {
+  color: #5687e3;
+  border-color: #6495ed !important; // 矢车菊的蓝色 100,149,237
+  background-color: rgba(100, 149, 237, 0.1) !important;
+  // 手札体-简
+  font-family: "Hannotate SC", Georgia, Tahoma, Arial, sans-serif;
+}
+
+ul,
+li {
+  min-height: fit-content;
+  margin-left: 10px;
+  padding-left: 0;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+  margin: 0 auto;
+  border-collapse: collapse;
+  //   width: fit-content;
+  width: fit-content;
+
+  //   width: 500px;
+  //text-align: center;
+}
+
+hr {
+  border: 0;
+  padding: 3px;
+  background: linear-gradient(135deg, red, orange, green, blue, purple);
+  --mask-image: repeating-linear-gradient(
+    135deg,
+    #000 0px,
+    #000 1px,
+    transparent 1px,
+    transparent 6px
+  );
+  -webkit-mask-image: var(--mask-image);
+  mask-image: var(--mask-image);
+}
+
+.text-box {
+  display: inline-block;
+  width: 48%;
+  vertical-align: top;
+  margin-right: 1%;
+  margin-left: 1%;
+}
