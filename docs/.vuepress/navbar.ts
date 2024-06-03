@@ -8,6 +8,11 @@ export default navbar([
         link: "/1-Java/",
     },
     {
+        text: "算法",
+        icon: "variable",
+        link: "/3-algo/",
+    },
+    {
         text: "软考",
         icon: "study",
         link: "/2-软考/",

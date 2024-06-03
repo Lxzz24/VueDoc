@@ -33,11 +33,11 @@ h6 {
 code {
   // 手札体-简
   font-family: "Comic Sans MS", Georgia, Tahoma, Arial, sans-serif;
-  font-size: 13px;
-  color: #004904;
-  // color: rgba(255, 127, 80); // 珊瑚色
-  background-color: #46bf7a !important;
+  font-size: 14px;
+  //   color: #e96a00;
+  background-color: #dfdfdf;
 }
+
 strong {
   font-size: 16px;
   color: #ff4500; // 橙红色
@@ -46,14 +46,16 @@ strong {
 }
 
 em {
-  color: #2e8b57;
+  // 斜体
+  //   color: #2e8b57;
   font-size: 16px;
   font-weight: bold;
-  //color: #32cd32; // 酸橙绿
+  color: #45b97c; // 绿
   // 手札体-简
   font-family: "Hannotate SC", Georgia, Tahoma, Arial, sans-serif;
 }
 u {
+  //下划线
   font-weight: bold;
   font-size: 16px;
   color: #6495ed;
@@ -61,9 +63,10 @@ u {
   font-family: "Hannotate SC", Georgia, Tahoma, Arial, sans-serif;
 }
 s {
+  //删除线
   font-size: 16px;
   font-style: italic;
-  color: #ffd700;
+  color: #d6b600;
 }
 
 blockquote {
@@ -76,6 +79,7 @@ blockquote {
 
 ul,
 li {
+  //有序 or 无序列表
   min-height: fit-content;
   margin-left: 10px;
   padding-left: 0;
@@ -83,17 +87,18 @@ li {
 table,
 th,
 td {
+  //表格
   border: 1px solid black;
   margin: 0 auto;
   border-collapse: collapse;
-  //   width: fit-content;
-  width: fit-content;
-
-  //   width: 500px;
+  //   float: right;
+  width: max-content;
+  //   width: 50s0px;
   //text-align: center;
 }
 
 hr {
+  // 彩虹样式分割线
   border: 0;
   padding: 3px;
   background: linear-gradient(135deg, red, orange, green, blue, purple);

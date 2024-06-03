@@ -36,7 +36,7 @@ export default sidebar({
                     prefix: "search/",
                     link: "search/",
                     collapsible: true,
-                    children: ["0.md", "1.md", "2.md", "3.md", "4.md", "5.md"],
+                    children: ["0.md", "1.md", "2.md", "3.md", "4.md", "5.md", "6.md", "7.md"],
                 },
                 {
                     text: "🐧 服务器",
@@ -342,6 +342,28 @@ export default sidebar({
             children: ["1.md", "2.md", "3.md", "4.md", "6.md",
             ],
         },
+    ],
+    "/3-algo/": [
+        "",
+        {
+            text: "数据结构",
+            prefix: "DS/",
+            link: "DS/",
+            collapsible: true,
+            children: [
+                "1.md", "2.md", "3.md", "4.md", "5.md", "6.md", "7.md", 
+            ],
+        },
+        {
+            text: "算法思想",
+            prefix: "Algo/",
+            link: "Algo/",
+            collapsible: true,
+            children: [
+                "1.md", "2.md", "3.md", "4.md", "5.md", "6.md", "7.md", "8.md", 
+            ],
+        },
+        
     ],
     "/99-tools": [
         "linux.md",
