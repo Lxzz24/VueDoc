@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vue_export-helper-DlAUqK2U.js";import{o as t,c as o,a as c}from"./app-CvlAI_tu.js";const n={},_=c("p",null,"本章进一步操作与管理文件及目录，包括在不同的目录间变换、建立、删除目录， 建立与删除文件、查找文件、查阅问价内容等，都会在这个章节进行简单介绍",-1),s=[_];function r(a,l){return t(),o("div",null,s)}const f=e(n,[["render",r],["__file","index.html.vue"]]);export{f as default};
