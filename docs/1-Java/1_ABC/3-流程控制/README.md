@@ -8,13 +8,10 @@ tag: Java
 ::: details 目录
 [[toc]]
 :::
- 
 
 在 Java 程序中，JVM 默认总是顺序执行以分号; 结束的语句。但是，在实际的代码中，程序经常需要做条件判断、循环，因此，需要有多种流程控制语句，来实现程序的跳转和循环等功能。
 
-
 ![](assets/20221207203118.png)
-
 
 本节我们将介绍 if 条件判断、switch 多重选择和各种循环语句。
 
@@ -52,7 +49,7 @@ public class Main {
 }
 ```
 
-如果要把数据显示成我们期望的格式，就需要使用格式化输出的功能。格式化输出使用 `System.out.printf()` ，通过使用占位符 `%?`，`printf()` 可以把后面的参数格式化成指定格式：
+如果要把数据显示成我们期望的格式，就需要使用格式化输出的功能。格式化输出使用 `System.out.printf()`，通过使用占位符 `%?`，`printf()` 可以把后面的参数格式化成指定格式：
 
 ```java
 public class Main {
@@ -83,8 +80,6 @@ public class Main {
 
 详细的格式化参数请参考 JDK 文档 [java.util.Formatter](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Formatter.html#syntax)
 
-
-
 ### 输入
 
 和输出相比，Java 的输入就要复杂得多。
@@ -106,11 +101,11 @@ public class Main {
 }
 ```
 
-首先，我们通过 `import` 语句导入 `java.util.Scanner` ， `import` 是导入某个类的语句，必须放到 Java 源代码的开头，后面我们在 Java 的 `package` 中会详细讲解如何使用 `import`。
+首先，我们通过 `import` 语句导入 `java.util.Scanner`，`import` 是导入某个类的语句，必须放到 Java 源代码的开头，后面我们在 Java 的 `package` 中会详细讲解如何使用 `import`。
 
-然后，创建 `Scanner` 对象并传入 `System.in`。 `System.out` 代表标准输出流，而 `System.in` 代表标准输入流。直接使用 `System.in` 读取用户输入虽然是可以的，但需要更复杂的代码，而通过 `Scanner` 就可以简化后续的代码。
+然后，创建 `Scanner` 对象并传入 `System.in`。`System.out` 代表标准输出流，而 `System.in` 代表标准输入流。直接使用 `System.in` 读取用户输入虽然是可以的，但需要更复杂的代码，而通过 `Scanner` 就可以简化后续的代码。
 
-有了 `Scanner` 对象后，要读取用户输入的字符串，使用 `scanner.nextLine()` ，要读取用户输入的整数，使用 `scanner.nextInt()` 。 `Scanner` 会自动转换数据类型，因此不必手动转换。
+有了 `Scanner` 对象后，要读取用户输入的字符串，使用 `scanner.nextLine()`，要读取用户输入的整数，使用 `scanner.nextInt()` 。`Scanner` 会自动转换数据类型，因此不必手动转换。
 
 要测试输入，我们不能在线运行它，因为输入必须从命令行读取，因此，需要走编译、执行的流程：
 
@@ -129,10 +124,9 @@ Hi, Bob, you are 12
 
 根据提示分别输入一个字符串和整数后，我们得到了格式化的输出。
 
-
 ### 练习
 
-请帮小明同学设计一个程序，输入上次考试成绩（ int ）和本次考试成绩（ int ），然后输出成绩提高的百分比，保留两位小数位（例如， 21.75% ）。
+请帮小明同学设计一个程序，输入上次考试成绩（ int ）和本次考试成绩（ int ），然后输出成绩提高的百分比，保留两位小数位（例如，21.75% ）。
 
 ```java
 import java.util.Scanner;
@@ -140,7 +134,7 @@ import java.util.Scanner;
 public class ScorePercent {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in); // 创建Scanner对象
-        System.out.print("name: "); 
+        System.out.print("name: ");
         String name = scanner.nextLine(); // 获取输入的姓名
         System.out.print("last result: ");
         int prev = scanner.nextInt(); // 获取输入的上次考试成绩
@@ -152,7 +146,6 @@ public class ScorePercent {
 }
 ```
 
-
 ![](assets/202206021600017.png)
 
 ### 小结
@@ -161,12 +154,9 @@ public class ScorePercent {
 
 - Java 提供 Scanner 对象来方便输入，读取对应的类型可以使用：`scanner.nextLine()` / `nextInt()` / `nextDouble()` / ...
 
-
 ## 🍀 if 判断
 
 在 Java 程序中，如果要根据条件来决定是否执行某一段代码，就需要 `if` 语句。
-
-
 
 ### if 语句的基本语法
 
@@ -211,7 +201,6 @@ public class Main {
 }
 ```
 
-
 当 `if` 语句块只有一行语句时，可以省略花括号 `{}`：
 
 ```java
@@ -224,7 +213,6 @@ public class Main {
     }
 }
 ```
-
 
 但是，省略花括号并不总是一个好主意。假设某个时候，突然想给 `if` 语句块增加一条语句时：
 
@@ -240,10 +228,7 @@ public class Main {
 }
 ```
 
-
-由于使用缩进格式，很容易把两行语句都看成 `if` 语句的执行块，但 ***实际上只有第一行语句是 `if` 的执行块*** 。在使用 git 这些版本控制系统自动合并时更容易出问题，所以 **不推荐忽略花括号的写法** 。
-
-
+由于使用缩进格式，很容易把两行语句都看成 `if` 语句的执行块，但 **_实际上只有第一行语句是 `if` 的执行块_** 。在使用 git 这些版本控制系统自动合并时更容易出问题，所以 **不推荐忽略花括号的写法** 。
 
 ### else
 
@@ -269,7 +254,6 @@ public class Main {
 
 > [!caution]
 > else 不是必须的。
-
 
 还可以用多个 `if ... else if ...` 串联。
 
@@ -328,10 +312,9 @@ public class Main {
 }
 ```
 
-
 执行发现，`n = 100` 时，满足条件 `n >= 90`，但输出的不是 `"优秀"`，而是 `"及格了"`，原因是 if 语句从上到下执行时，先判断 `n >= 60` 成功后，后续 `else` 不再执行，因此，`if (n >= 90)`没有机会执行了。
 
-正确的方式是 ***按照判断范围从大到小依次判断*** ：
+正确的方式是 **_按照判断范围从大到小依次判断_** ：
 
 ```java
 // 从大到小依次判断：
@@ -344,7 +327,7 @@ if (n >= 90) {
 }
 ```
 
-***或者改写成从小到大依次判断***：
+**_或者改写成从小到大依次判断_**：
 
 ```java
 // 从小到大依次判断：
@@ -391,7 +374,7 @@ public class Main {
 }
 ```
 
-正确的方法是 ***利用差值小于某个临界值来判断*** ：
+正确的方法是 **_利用差值小于某个临界值来判断_** ：
 
 ```java
 public class Main {
@@ -408,7 +391,7 @@ public class Main {
 
 ### 判断引用类型相等
 
-在 Java 中，判断值类型的变量是否相等，可以使用 `==` 运算符。但是，判断引用类型的变量是否相等，`==` 表示 *“引用是否相等”* ，或者说，*是否指向同一个对象* 。例如，下面的两个 String 类型，它们的内容是相同的，但是，分别指向不同的对象，用 `==` 判断，结果为 `false`：
+在 Java 中，判断值类型的变量是否相等，可以使用 `==` 运算符。但是，判断引用类型的变量是否相等，`==` 表示 _“引用是否相等”_ ，或者说，_是否指向同一个对象_ 。例如，下面的两个 String 类型，它们的内容是相同的，但是，分别指向不同的对象，用 `==` 判断，结果为 `false`：
 
 ```java
 public class Main {
@@ -473,7 +456,6 @@ public class Main {
 
 还可以把一定不是 `null` 的对象 `"hello"` 放到前面：例如：`if ("hello".equals(s)) { ... }`。
 
-
 ### 练习
 
 请用 `if ... else` 编写一个程序，用于计算体质指数 BMI，并打印结果。
@@ -481,11 +463,12 @@ public class Main {
 $BMI = 体重(kg) ÷ 身高(m)的平方$
 
 BMI 结果：
-- 过轻：低于18.5
+
+- 过轻：低于 18.5
 - 正常：18.5-25
 - 过重：25-28
 - 肥胖：28-32
-- 非常肥胖：高于32
+- 非常肥胖：高于 32
 
 ```java
 import java.util.Scanner;
@@ -523,18 +506,14 @@ public class BMITest {
 }
 ```
 
-
 ### 小结：
 
 - `if-else` 可以做条件判断，`else` 是可选的
-- 语句块只有一条执行语句时，`{}` 可以省略， ***但建议保留***
+- 语句块只有一条执行语句时，`{}` 可以省略，**_但建议保留_**
 - 多个 `if ... else` 串联要特别注意判断顺序；
 - 要注意 `if` 的边界条件；
 - 要注意浮点数判断相等不能直接用 `==` 运算符；
 - 引用类型判断内容相等要使用 `equals()`，注意避免 `NullPointerException`。
-
-
-
 
 ## 🍀 switch 多重选择
 
@@ -557,7 +536,7 @@ public class BMITest {
       // break;
     case 常量2:
       语句2;
-      // break; 
+      // break;
     ... ...
     case 常量N:
       语句N;
@@ -569,7 +548,6 @@ public class BMITest {
 ```
 
 ![](assets/SE0224.png)
-
 
 我们看一个例子：
 
@@ -594,8 +572,7 @@ public class Main {
 
 修改 `option` 的值分别为 1、2、3 ，观察执行结果。
 
-如果 `option` 的值没有匹配到任何 `case` ，例如 `option = 99` ，那么， `switch` 语句不会执行任何语句。这时，可以给 `switch` 语句加一个 `default` ，当没有匹配到任何 `case` 时，执行 `default` ：
-
+如果 `option` 的值没有匹配到任何 `case`，例如 `option = 99`，那么，`switch` 语句不会执行任何语句。这时，可以给 `switch` 语句加一个 `default`，当没有匹配到任何 `case` 时，执行 `default` ：
 
 ```java
 public class Main {
@@ -621,7 +598,6 @@ public class Main {
 
 如果把 `switch` 语句翻译成 `if` 语句，那么上述的代码相当于：
 
-
 ```java
     if (option == 1) {
         System.out.println("Selected 1");
@@ -638,7 +614,7 @@ public class Main {
 
 同时注意，上述“翻译”只有在 `switch` 语句中对每个 `case` 正确编写了 `break` 语句才能对应得上。
 
-使用 `switch` 时，注意 `case` 语句并没有花括号 `{}` ，而且， `case` 语句具有“**穿透性**”，漏写 `break` 将导致意想不到的结果：
+使用 `switch` 时，注意 `case` 语句并没有花括号 `{}`，而且，`case` 语句具有“**穿透性**”，漏写 `break` 将导致意想不到的结果：
 
 ```java
 public class Main {
@@ -658,7 +634,7 @@ public class Main {
 }
 ```
 
-当 `option = 2` 时，将依次输出 `"Selected 2"` 、 `"Selected 3"` 、 `"Not selected"` ，原因是从匹配到 `case 2` 开始，后续语句将全部执行，直到遇到 `break` 语句。因此，任何时候都不要忘记写 `break` 。
+当 `option = 2` 时，将依次输出 `"Selected 2"`、`"Selected 3"`、`"Not selected"`，原因是从匹配到 `case 2` 开始，后续语句将全部执行，直到遇到 `break` 语句。因此，任何时候都不要忘记写 `break` 。
 
 如果有几个 `case` 语句执行的是同一组语句块，可以这么写：
 
@@ -682,8 +658,7 @@ public class Main {
 }
 ```
 
-使用 `switch` 语句时，只要保证有 `break` ， `case` 的顺序不影响程序逻辑：
-
+使用 `switch` 语句时，只要保证有 `break`，`case` 的顺序不影响程序逻辑：
 
 ```java
     switch (option) {
@@ -702,7 +677,6 @@ public class Main {
 但是仍然建议按照自然顺序排列，便于阅读。
 
 `switch` 语句还可以匹配字符串。字符串匹配时，是比较“内容相等”。例如：
-
 
 ```java
 public class Main {
@@ -732,27 +706,24 @@ public class Main {
 
 使用 IDE 时，可以自动检查是否漏写了 `break` 语句和 `default` 语句，方法是打开 IDE 的编译检查。
 
-在 Eclipse 中，选择 `Preferences - Java - Compiler - Errors/Warnings - Potential programming problems` ，将以下检查标记为 Warning：
+在 Eclipse 中，选择 `Preferences - Java - Compiler - Errors/Warnings - Potential programming problems`，将以下检查标记为 Warning：
 
 - 'switch' is missing 'default' case
 - 'switch' case fall-through
 
-在 Idea 中，选择 `Preferences - Editor - Inspections - Java - Control flow issues` ，将以下检查标记为 Warning：
+在 Idea 中，选择 `Preferences - Editor - Inspections - Java - Control flow issues`，将以下检查标记为 Warning：
 
 - Fallthrough in 'switch' statement
 - 'switch' statement without 'default' branch
 
 当 switch 语句存在问题时，即可在 IDE 中获得警告提示。
 
-> [!warning]
-> **不要忘记 break！**  
+> [!warning] > **不要忘记 break！**  
 > **不要忘记 default！**
 
+### switch 表达式 \*
 
-### switch 表达式 *
-
-使用 `switch` 时，如果遗漏了 `break` ，就会造成严重的逻辑错误，而且不易在源代码中发现错误。从 Java 12 开始， `switch` 语句升级为更简洁的表达式语法，使用类似模式匹配（ Pattern Matching ）的方法，保证只有一种路径会被执行，并且不需要 `break` 语句：
-
+使用 `switch` 时，如果遗漏了 `break`，就会造成严重的逻辑错误，而且不易在源代码中发现错误。从 Java 12 开始，`switch` 语句升级为更简洁的表达式语法，使用类似模式匹配（ Pattern Matching ）的方法，保证只有一种路径会被执行，并且不需要 `break` 语句：
 
 ```java
 public class Main {
@@ -771,7 +742,7 @@ public class Main {
 }
 ```
 
-注意新语法使用 `->` ，如果有多条语句，需要用 `{}` 括起来。不要写 `break` 语句，因为新语法只会执行匹配的语句，没有穿透效应。
+注意新语法使用 `->`，如果有多条语句，需要用 `{}` 括起来。不要写 `break` 语句，因为新语法只会执行匹配的语句，没有穿透效应。
 
 很多时候，我们还可能用 `switch` 语句给某个变量赋值。例如：
 
@@ -791,7 +762,7 @@ public class Main {
     }
 ```
 
-使用新的 `switch` 语法，不但不需要 `break` ，还可以直接返回值。把上面的代码改写如下：
+使用新的 `switch` 语法，不但不需要 `break`，还可以直接返回值。把上面的代码改写如下：
 
 ```java
 public class Main {
@@ -809,13 +780,11 @@ public class Main {
 
 这样可以获得更简洁的代码。
 
-
-### yield *
+### yield \*
 
 大多数时候，在 `switch` 表达式内部，我们会返回简单的值。
 
 但是，如果需要复杂的语句，我们也可以写很多语句，放到 `{...}` 里，然后，用 `yield` 返回一个值作为 `switch` 语句的返回值：
-
 
 ```java
 public class Main {
@@ -877,35 +846,32 @@ public class MoraTest {
 }
 ```
 
-
 ### 小结：
 
-1. 根据 `switch` 表达式中的值，依次匹配各个 `case` 中的常量。  
-   一旦匹配成功，则进入相应 `case` 结构中，调用其执行语句。  
-   当调用完执行语句以后，则仍然继续向下执行其他 `case` 结构中的执行语句，  
-   直到遇到 `break` 关键字或此 `switch-case` 结构末尾结束为止。  
-2.  `break` ，可以使用在 `switch-case` 结构中，表示一旦执行到此关键字，就跳出 `switch-case` 结构。
-3.  `switch` 结构中的表达式只能是如下的 6 种数据类型之一：*byte*、*short*、*char*、*int*、*枚举类型* (JDK5.0)、*String* (JDK7.0)。
-4.  `case` 之后只能声明常量，不能声明范围。
-5.  `break` 关键字是可选的。
-6.  `default` ：相当于 `if-else` 结构中的 `else` 。 `default` 结构是可选的。
+1. 根据 `switch` 表达式中的值，依次匹配各个 `case` 中的常量。
+   一旦匹配成功，则进入相应 `case` 结构中，调用其执行语句。
+   当调用完执行语句以后，则仍然继续向下执行其他 `case` 结构中的执行语句，
+   直到遇到 `break` 关键字或此 `switch-case` 结构末尾结束为止。
+2. `break`，可以使用在 `switch-case` 结构中，表示一旦执行到此关键字，就跳出 `switch-case` 结构。
+3. `switch` 结构中的表达式只能是如下的 6 种数据类型之一：_byte_、_short_、_char_、_int_、_枚举类型_ (JDK5.0)、_String_ (JDK7.0)。
+4. `case` 之后只能声明常量，不能声明范围。
+5. `break` 关键字是可选的。
+6. `default` ：相当于 `if-else` 结构中的 `else` 。`default` 结构是可选的。
 
 > [!important]
+>
 > - 如果 `switch-case` 结构中的多个 `case` 的执行语句相同，则可以考虑进行合并。
 > - `break` 在 `switch-case` 中是可选的
 
-
 > [!important]
-> 从 Java 14 开始， `switch` 语句正式升级为表达式，不再需要 `break` ，并且允许使用 `yield` 返回值。
-
-
-
+> 从 Java 14 开始，`switch` 语句正式升级为表达式，不再需要 `break`，并且允许使用 `yield` 返回值。
 
 ## 🍀 分支结构总结
 
 ### switch 和 if 语句的对比
 
 > [!caution]
+>
 > 1. 凡是可以使用 `switch-case` 的结构，都可以转换为 `if-else` 。反之，不成立(if 的使用范围更广)。
 > 2. 当我们写分支结构时，两种结构都可以使用时(case 不要过多：判断的具体数值不多)，优先使用 `switch-case`。
 
@@ -915,17 +881,15 @@ public class MoraTest {
 
 > [!tip]
 > 具体实现步骤：
+>
 > 1. 导包：`import java.util.Scanner`;
 > 2. Scanner 的实例化: `Scanner scan = new Scanner(System.in)`;
 > 3. 调用 Scanner 类的相关方法( `next()` / `nextXxx()` )，来获取指定类型的变量
 
-
 > [!warning]
 > 注意：  
-> 需要根据相应的方法，来输入指定类型的值。  
+> 需要根据相应的方法，来输入指定类型的值。
 > 如果输入的数据类型与要求的类型不匹配时，会报异常：`InputMisMatchException`，导致程序终止。
-
-
 
 ## 🍀 while 循环
 
@@ -938,10 +902,9 @@ $1 + 2 + 3 + 4 + … + 100 = ?$
 
 除了用数列公式外，完全可以让计算机做 100 次循环累加。因为计算机的特点是计算速度非常快，我们让计算机循环一亿次也用不到 1 秒，所以很多计算的任务，人去算是算不了的，但是计算机算，使用循环这种简单粗暴的方法就可以快速得到结果。
 
-
 ![](assets/SE0225.png)
 
-我们先看 Java 提供的 while 条件循环。它的 ***基本用法*** 是：
+我们先看 Java 提供的 while 条件循环。它的 **_基本用法_** 是：
 
 ```java
     while (条件表达式) {
@@ -950,7 +913,7 @@ $1 + 2 + 3 + 4 + … + 100 = ?$
     // 继续执行后续代码
 ```
 
-`while` 循环在每次循环开始前，首先判断条件是否成立。如果计算结果为 `true` ，就把循环体内的语句执行一遍，如果计算结果为 `false` ，那就直接跳到 `while` 循环的末尾，继续往下执行。
+`while` 循环在每次循环开始前，首先判断条件是否成立。如果计算结果为 `true`，就把循环体内的语句执行一遍，如果计算结果为 `false`，那就直接跳到 `while` 循环的末尾，继续往下执行。
 
 我们用 `while` 循环来累加 1 到 100 ，可以这么写：
 
@@ -978,15 +941,15 @@ public class Main {
         int sum = 0;
         int n = 0;
         while (n <= 100) {
-            n ++; 
-            sum = sum + n; 
+            n ++;
+            sum = sum + n;
         }
         System.out.println(sum);
     }
 }
 ```
 
-如果循环条件永远满足，那这个循环就变成了死循环。死循环将导致 100% 的 CPU 占用，用户会感觉电脑运行缓慢，所以 ***要避免编写死循环代码*** 。
+如果循环条件永远满足，那这个循环就变成了死循环。死循环将导致 100% 的 CPU 占用，用户会感觉电脑运行缓慢，所以 **_要避免编写死循环代码_** 。
 
 如果循环条件的逻辑写得有问题，也会造成意料之外的结果：
 
@@ -1035,21 +998,15 @@ public class SumMNTest {
 }
 ```
 
-
 ### 小结
 
 - while 循环先判断循环条件是否满足，再执行循环语句；
 - while 循环可能一次都不执行；
 - 编写循环时要注意循环条件，并避免死循环。
 
-
-
-
 ## 🍀 do-while 循环
 
-
-
-在 Java 中， `while` 循环是先判断循环条件，再执行循环。而另一种 `do while` 循环则是 ***先执行循环*** ，再判断条件，条件满足时继续循环，条件不满足时退出。它的用法是：
+在 Java 中，`while` 循环是先判断循环条件，再执行循环。而另一种 `do while` 循环则是 **_先执行循环_** ，再判断条件，条件满足时继续循环，条件不满足时退出。它的用法是：
 
 ```java
     do {
@@ -1057,7 +1014,7 @@ public class SumMNTest {
     } while (条件表达式);
 ```
 
-可见， ***do while 循环会至少循环一次*** 。
+可见，**_do while 循环会至少循环一次_** 。
 
 我们把对 1 到 100 的求和用 `do while` 循环改写一下：
 
@@ -1111,13 +1068,11 @@ public class SumMNTest {
 - `do while` 循环先执行循环，再判断条件；
 - `do while` 循环会至少执行一次。
 
-
 ## 🍀 for 循环
-
 
 除了 `while` 和 `do while` 循环，Java 使用最广泛的是 `for` 循环。
 
-`for` 循环的功能非常强大，它使用 *计数器* 实现循环。 `for` 循环会先初始化计数器，然后，在每次循环前检测循环条件，在每次循环后更新计数器。计数器变量通常命名为 `i` 。
+`for` 循环的功能非常强大，它使用 _计数器_ 实现循环。`for` 循环会先初始化计数器，然后，在每次循环前检测循环条件，在每次循环后更新计数器。计数器变量通常命名为 `i` 。
 
 我们把 1 到 100 求和用 `for` 循环改写一下：
 
@@ -1133,9 +1088,9 @@ public class Main {
 }
 ```
 
-在 `for` 循环执行前，会先执行初始化语句 `int i = 1` ，它定义了计数器变量 `i` 并赋初始值为 `1` ，然后，循环前先检查循环条件 `i <= 100` ，循环后自动执行 `i++` ，因此，和 `while` 循环相比， `for` 循环把更新计数器的代码统一放到了一起。在 `for` 循环的循环体内部，不需要去更新变量 `i` 。
+在 `for` 循环执行前，会先执行初始化语句 `int i = 1`，它定义了计数器变量 `i` 并赋初始值为 `1`，然后，循环前先检查循环条件 `i <= 100`，循环后自动执行 `i++`，因此，和 `while` 循环相比，`for` 循环把更新计数器的代码统一放到了一起。在 `for` 循环的循环体内部，不需要去更新变量 `i` 。
 
-因此， `for` 循环的 ***用法*** 是：
+因此，`for` 循环的 **_用法_** 是：
 
 ```java
     for (初始条件; 循环检测条件; 循环后更新计数器) {
@@ -1159,15 +1114,15 @@ public class Main {
 }
 ```
 
-上面代码的循环条件是 `i < ns.length` 。因为 `ns` 数组的长度是 `5` ，因此，当循环 `5` 次后， `i` 的值被更新为 `5` ，就不满足循环条件，因此 `for` 循环结束。
+上面代码的循环条件是 `i < ns.length` 。因为 `ns` 数组的长度是 `5`，因此，当循环 `5` 次后，`i` 的值被更新为 `5`，就不满足循环条件，因此 `for` 循环结束。
 
 > [!important]
-> 思考：如果把循环条件改为 `i<=ns.length` ，会出现什么问题？
+> 思考：如果把循环条件改为 `i<=ns.length`，会出现什么问题？
 
 注意 `for` 循环的初始化计数器总是会被执行，并且 `for` 循环也可能循环 0 次。
 
 > [!warning]
-> 使用 `for` 循环时， ***千万不要在循环体内修改计数器！*** 在循环体中修改计数器常常导致莫名其妙的逻辑错误。
+> 使用 `for` 循环时，**_千万不要在循环体内修改计数器！_** 在循环体中修改计数器常常导致莫名其妙的逻辑错误。
 
 对于下面的代码：
 
@@ -1219,7 +1174,7 @@ public class Main {
     int n = i;
 ```
 
-那么，退出 `for` 循环后，变量 `i` 仍然可以被访问，这就破坏了 ***变量应该把访问范围缩到最小*** 的原则。
+那么，退出 `for` 循环后，变量 `i` 仍然可以被访问，这就破坏了 **_变量应该把访问范围缩到最小_** 的原则。
 
 ### 灵活使用 for 循环
 
@@ -1266,9 +1221,9 @@ public class Main {
 }
 ```
 
-和 `for` 循环相比，`for each` 循环的变量 `n` 不再是计数器，而是直接对应到数组的每个元素。 `for each` 循环的写法也更简洁。但是， ***`for each` 循环无法指定遍历顺序，也无法获取数组的索引*** 。
+和 `for` 循环相比，`for each` 循环的变量 `n` 不再是计数器，而是直接对应到数组的每个元素。`for each` 循环的写法也更简洁。但是，**_`for each` 循环无法指定遍历顺序，也无法获取数组的索引_** 。
 
-除了数组外， `for each` 循环能够遍历所有“可迭代”的数据类型，包括后面会介绍的 `List` 、 `Map` 等。
+除了数组外，`for each` 循环能够遍历所有“可迭代”的数据类型，包括后面会介绍的 `List`、`Map` 等。
 
 ### 练习 1
 
@@ -1282,10 +1237,9 @@ public class Main {
 
 圆周率 π 可以使用公式计算：
 
-$\frac{\mathrm\pi}4=1-\frac13+\frac15-\frac17+\frac19-\dots$ 
+$\frac{\mathrm\pi}4=1-\frac13+\frac15-\frac17+\frac19-\dots$
 
 请利用 `for` 循环计算 π ：
-
 
 ```java
 public class ForTest {
@@ -1328,38 +1282,31 @@ public class ForTest {
 }
 ```
 
-
 ### 小结
 
 - `for` 循环通过计数器可以实现复杂循环；
 - `for each` 循环可以直接遍历数组的每个元素；
 - 最佳实践：计数器变量定义在 `for` 循环内部，循环体内部不修改计数器；
 
-
-
-
 ## 🍀 循环补充
 
-### *无限循环
+### \*无限循环
 
 1. 不在循环条件部分限制次数的结构：`for(;;)` 或 `while(true)`
 2. 结束循环有几种方式？
    - 方式一：循环条件部分返回 false
    - 方式二：**在循环体中，执行 break**
 
-
 ### 嵌套循环
 
 1. 嵌套循环：将一个循环结构 A 声明在另一个循环结构 B 的循环体中，就构成了嵌套循环
-    - 外层循环：循环结构 B
-    - 内层循环：循环结构 A
+   - 外层循环：循环结构 B
+   - 内层循环：循环结构 A
 2. 内层循环结构遍历一遍，只相当于外层循环循环体执行了一次
-3. 假设外层循环需要执行 m 次，内层循环需要执行 n 次。此时内层循环的循环体一共执行了 m * n 次
+3. 假设外层循环需要执行 m 次，内层循环需要执行 n 次。此时内层循环的循环体一共执行了 m \* n 次
 
 > [!important]
 > 外层循环控制行数，内层循环控制列数
-
-
 
 ## 🍀 break 和 continue
 
@@ -1367,7 +1314,7 @@ public class ForTest {
 
 ### break
 
-在循环过程中，可以使用 `break` 语句 ***跳出当前循环*** 。我们来看一个例子：
+在循环过程中，可以使用 `break` 语句 **_跳出当前循环_** 。我们来看一个例子：
 
 ```java
 public class Main {
@@ -1384,9 +1331,9 @@ public class Main {
 }
 ```
 
-使用 `for` 循环计算从 1 到 100 时，我们并没有在 `for()` 中设置循环退出的检测条件。但是，在循环内部，我们用 `if` 判断，如果 `i==100` ，就通过 `break` 退出循环。
+使用 `for` 循环计算从 1 到 100 时，我们并没有在 `for()` 中设置循环退出的检测条件。但是，在循环内部，我们用 `if` 判断，如果 `i==100`，就通过 `break` 退出循环。
 
-因此， `break` 语句通常都是配合 `if` 语句使用。要特别注意， ***`break` 语句总是跳出自己所在的那一层循环*** 。例如：
+因此，`break` 语句通常都是配合 `if` 语句使用。要特别注意，**_`break` 语句总是跳出自己所在的那一层循环_** 。例如：
 
 ```java
 public class Main {
@@ -1429,12 +1376,11 @@ public class Main {
 }
 ```
 
-注意观察 `continue` 语句的效果。当 `i` 为奇数时，完整地执行了整个循环，因此，会打印 `begin i=1` 和 `end i=1` 。在 `i` 为偶数时， `continue` 语句会提前结束本次循环，因此，会打印 `begin i=2` 但不会打印 `end i = 2` 。
+注意观察 `continue` 语句的效果。当 `i` 为奇数时，完整地执行了整个循环，因此，会打印 `begin i=1` 和 `end i=1` 。在 `i` 为偶数时，`continue` 语句会提前结束本次循环，因此，会打印 `begin i=2` 但不会打印 `end i = 2` 。
 
-在多层嵌套的循环中， `continue` 语句同样是结束本次自己所在的循环。
+在多层嵌套的循环中，`continue` 语句同样是结束本次自己所在的循环。
 
 ### break 和 continue 关键字的使用
-
 
 <table style="text-align:center">
     <tr>
@@ -1459,23 +1405,18 @@ public class Main {
     </tr>
 </table>
 
-
 可以通过标签指明要跳过的是哪一层循环
 
 > [!tip]
-> - `return`：并非专门用于结束循环的，它的功能是结束一个方法。  
-> 当一个方法执行到一个 `return` 语句时，这个方法将被结束。
-> - 与 `break` 和 `continue` 不同的是， `return` **直接结束整个方法**，不管这个 `return` 处于多少层循环之内
-
+>
+> - `return`：并非专门用于结束循环的，它的功能是结束一个方法。
+>   当一个方法执行到一个 `return` 语句时，这个方法将被结束。
+> - 与 `break` 和 `continue` 不同的是，`return` **直接结束整个方法**，不管这个 `return` 处于多少层循环之内
 
 ### 小结
 
 - `break` 语句可以跳出当前循环；
-- `break` 语句通常配合 `if` ，在满足条件时提前结束整个循环；
+- `break` 语句通常配合 `if`，在满足条件时提前结束整个循环；
 - `break` 语句总是跳出最近的一层循环；
 - `continue` 语句可以提前结束本次循环；
-- `continue` 语句通常配合 `if` ，在满足条件时提前结束本次循环。
-
-
-
-
+- `continue` 语句通常配合 `if`，在满足条件时提前结束本次循环。

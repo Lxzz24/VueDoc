@@ -23,7 +23,8 @@ tag: Java
 - java.util.Map
         |---- HashMap
         |       └---- LinkedHashMap
-        |---- TreeMap
+        |---- SortedMap
+        |       └---- TreeMap
         └---- Hashtable
                 └---- Properties
 ```
