@@ -11,20 +11,26 @@ tag: Java
 ![](assets/20221121172632.png)
 
 ```
-- java.util.Collection
-        |---- List
-        |       |---- ArrayList
-        |       |---- LinkedList
+- java.util.Collection <<interface>>
+        |---- List <<interface>>
+        |       |---- ArrayList ✅
+        |       |---- LinkedList ✅
         |       └---- Vector
-        └---- Set
-                |---- HashSet
-                |       └---- LinkedHashSet
-                └---- TreeSet
-- java.util.Map
-        |---- HashMap
+        |               └---- Stack // 栈
+        |---- Set <<interface>>
+        |       |---- HashSet ✅
+        |       |       └---- LinkedHashSet
+        |       └---- TreeSet ✅
+        └---- Queue <<interface>>
+                |----Deque <<interface>> // 队列
+                |       └----ArrayDeque ✅
+                └----ProiorityQueue // 堆
+- java.util.Map <<interface>>
+        |---- HashMap ✅
         |       └---- LinkedHashMap
         |---- SortedMap
-        |       └---- TreeMap
+        |       └---- TreeMap ✅
+        |---- EnumMap
         └---- Hashtable
                 └---- Properties
 ```
