@@ -23,7 +23,8 @@ tag: Java
         |       └---- TreeSet ✅
         └---- Queue <<interface>>
                 |---- Deque <<interface>> // 队列
-                |       └----ArrayDeque ✅
+                |       └---- ArrayDeque ✅
+                |       └---- LinkedList 🌟
                 |---- ProiorityQueue // 堆
                 └---- LinkedList 🌟
 - java.util.Map <<interface>>
