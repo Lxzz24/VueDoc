@@ -14,7 +14,7 @@ tag: Java
 - java.util.Collection <<interface>>
         |---- List <<interface>>
         |       |---- ArrayList ✅
-        |       |---- LinkedList ✅
+        |       |---- LinkedList 🌟
         |       └---- Vector
         |               └---- Stack // 栈
         |---- Set <<interface>>
@@ -22,9 +22,10 @@ tag: Java
         |       |       └---- LinkedHashSet
         |       └---- TreeSet ✅
         └---- Queue <<interface>>
-                |----Deque <<interface>> // 队列
+                |---- Deque <<interface>> // 队列
                 |       └----ArrayDeque ✅
-                └----ProiorityQueue // 堆
+                |---- ProiorityQueue // 堆
+                └---- LinkedList 🌟
 - java.util.Map <<interface>>
         |---- HashMap ✅
         |       └---- LinkedHashMap
