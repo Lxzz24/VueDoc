@@ -57,6 +57,7 @@ export default sidebar({
     ],
     "/1-Java/": [
         "",
+        "SUM.md",
         {
             text: "Java 基础",
             prefix: "1_ABC/",
