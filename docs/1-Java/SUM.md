@@ -722,6 +722,87 @@ _表示一个带时区的日期和时间_
 
 ## 🍀 正则表达式
 
+```md
+# 简介
+正则表达式是用字符串描述的一个**匹配规则**，
+使用正则表达式可以快速判断给定的字符串_是否符合_匹配规则。
+
+# 匹配规则
+**从左到右**按规则匹配
+- 匹配任意字符： `.`
+- 匹配任意单个数字： `\d`
+- 匹配常用字符： `\w`  ~~不能匹配 `#` \ `空格` 等~~
+- 匹配空格： `\s`  包括 tab
+- 匹配非数字、非常用字符、非空格： `\D` \ `\W` \ `\S`
+- 重复匹配： 
+    - 任意个： `*` 包括 0 个字符
+    - 至少 1 个： `+`
+    - 0 或 1 个： `?`
+    - n 个： `{n}`
+    - n～m 个： `{n,m}`
+    - 至少 n 个： `{n,}`
+
+# 复杂匹配规则
+- 多行匹配：开头 `^` 结尾 `$`
+- 匹配指定范围： 
+    - 数字 1～9 `[1-9]` 
+    - 字符 a～f / A~F `[a-f]` `[A-F]`
+    - 排除 1～9 `[^1-9]`
+    - 例：6 位十六进制数（大小写不限） `[0-9a-fA-F]{6}`
+- 或规则匹配： `|`
+- 使用括号： `learn\s(java|php|go)`
+
+# 分组匹配
+1. 用 Pattern 对象匹配规则
+`Pattern p = Pattern.compile("(\\d{3,4})\\-(\\d{7,8})");`
+2. 匹配后获得一个 Matcher 对象
+`Matcher m = p.matcher("010-12345678");`
+3. 如果匹配成功，就可以返回子串：
+`if (m.matches()) {`
+    `String g1 = m.group(1);` // 010
+    `String g2 = m.group(2);}` // 12345678
+    // m.group(0) 会返回 010-12345678
+
+# 非贪婪匹配
+非贪婪匹配：总是尽可能**少**地向后匹配
+正则表达式匹配默认使用贪婪匹配，可以使用 `?` 表示对某一规则进行非贪婪匹配
+例：给定一个字符串表示的数字，判断该数字末尾 `0` 的个数
+    `(\\d+?)(0*)`
+注意区分多个 `?` 的含义，例如 `(\d??)(9*)`：
+    `\d?` 表示匹配 0 个或 1 个数字，后面的 `?` 表示非贪婪匹配
+    "9999" 就会匹配成 "" 和 "9999" 两个子串
+
+# 搜索与替换
+## 分割字符串
+- `String.split()` 方法传入的正是正则表达式
+`"a b c".split("\\s"); // { "a", "b", "c" }`
+`"a b  c".split("\\s"); // { "a", "b", "","c" }`
+`"a, b ;; c".split("[\\,\\;\\s]+"); // { "a", "b", "c" }`
+
+## 搜索字符串
+获取到 `Matcher` 对象后，反复调用 `find()` 方法，
+`String s = "the quick brown fox jumps over the lazy dog.";`
+`Pattern p = Pattern.compile("\\wo\\w");`
+`Matcher m = p.matcher(s);`
+`while (m.find()) {`
+    `String sub = s.substring(m.start(), m.end());`
+    `System.out.println(sub);}`
+在整个串中搜索能匹配上 `\\wo\\w` 规则的子串，并打印出来
+
+## 替换字符串❗️
+调用 `String.replaceAll()` 使用正则表达式替换字符串
+`String s = "The     quick\t\t brown   fox  jumps   over the  lazy dog.";`
+`String r = s.replaceAll("\\s+", " ");`
+第一个参数是正则表达式，第二个参数是待替换的字符串
+
+## 反向引用
+`String s = "the quick brown fox jumps over the lazy dog.";`
+`String r = s.replaceAll("\\s([a-z]{4})\\s", " <b>$1</b> ");`
+结果：
+the quick brown fox jumps <b>over</b> the <b>lazy</b> dog.
+
+```
+
 @tab 12
 
 ## 🍀 加密与安全
