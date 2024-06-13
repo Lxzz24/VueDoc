@@ -807,6 +807,130 @@ the quick brown fox jumps <b>over</b> the <b>lazy</b> dog.
 
 ## 🍀 加密与安全
 
+```md
+# 编码算法
+- ASCII 编码：最多 128 个字符
+- Uincode 编码
+- UTF-8 编码
+## URL 编码
+- URL 编码是对字符进行编码，表示成 `%xx` 的形式
+- URL 编码后的文本仅包含 `A`～`Z`，`a`～`z`，`0`～`9`，`-`，`_`，`.`，`*` 和 `%`，
+  便于浏览器和服务器处理
+- Java 编码
+  `String encoded = URLEncoder.encode("中文!", StandardCharsets.UTF_8);`
+- Java 解码
+  `String decoded = URLDecoder.decode("%E4%B8%AD%E6%96%87%21", StandardCharsets.UTF_8);`
+## Base64 编码
+- Base64 编码是对二进制数据进行编码，表示成文本格式
+- 原理是把 3 字节的二进制数据按 6bit 一组，用 4 个 int 整数表示，
+  然后查表，把 int 整数用索引对应到字符，得到编码后的字符串。
+- 编码
+  `byte[] input = new byte[] { (byte) 0xe4, (byte) 0xb8, (byte) 0xad };`
+  `String b64encoded = Base64.getEncoder().encodeToString(input);`
+- 解码
+`byte[] output = Base64.getDecoder().decode("5Lit");`
+- 编码后数据量会增加 1/3
+
+# 哈希算法
+- 哈希算法（Hash）又称摘要算法（Digest）
+- 对任意一组输入数据进行计算，得到一个固定长度的输出摘要
+    - 相同的输入一定得到相同的输出；
+    - 不同的输入大概率得到不同的输出。
+- 目的是 **验证原始数据是否被篡改**
+> 例： `String.hashCode();` // 输入是任意字符串，输出是固定的 4 字节 int 整数
+- _哈希算法的输出长度越长，就越难产生碰撞，也就越安全_
+- 输入计算哈希举例（MD5）
+    1. 创建一个 MessageDigest 实例:
+    `MessageDigest md = MessageDigest.getInstance("MD5");`
+    2. 反复调用 update 输入数据:
+    `md.update("Hello".getBytes("UTF-8"));`
+    `md.update("World".getBytes("UTF-8"));`
+    3. 获得 byte[] 数组表示的摘要
+    `byte[] result = md.digest();`
+    4. 转换为十六进制的字符串
+    `System.out.println(new BigInteger(1, result).toString(16));`
+- 常用重要用途：存储用户口令
+    - 注意防止彩虹表攻击：**加盐**——对每个口令额外添加随机数
+    `digest = md5(salt+inputPassword)`
+
+# BouncyCastle
+一个提供了很多哈希算法和加密算法的第三方库，使用方法如下：
+1. 把 BouncyCastle 提供的 jar 包放到 classpath 中
+2. 注册 BouncyCastle（注册只需要在启动时进行一次）
+   `Security.addProvider(new BouncyCastleProvider());`
+3. 按加密算法名称正常调用
+
+# Hmac 算法
+- Hmac 算法是一种基于密钥的消息认证码算法，是一种更安全的消息摘要算法
+- Hmac 算法总是和某种哈希算法配合起来用的，
+  例如，我们使用 MD5 算法，对应的就是 HmacMD5 算法
+  - 为了保证安全，我们不会自己指定 key，而是通过 Java 标准库的 KeyGenerator 生成一个安全的随机的 key
+  - 使用步骤
+    1. 通过名称 `HmacMD5` 获取 `KeyGenerator` 实例；
+    `KeyGenerator keyGen = KeyGenerator.getInstance("HmacMD5");`
+    2. 通过 `KeyGenerator` 创建一个 `SecretKey` 实例；
+    `SecretKey key = keyGen.generateKey();`
+    3. 通过名称 `HmacMD5` 获取 `Mac` 实例；
+    `Mac mac = Mac.getInstance("HmacMD5");`
+    4. 用 `SecretKey` 初始化 `Mac` 实例；
+    `mac.init(key);`
+    5. 对 `Mac` 实例反复调用 `update(byte[])` 输入数据；
+    `mac.update("HelloWorld".getBytes("UTF-8"));`
+    6. 调用 `Mac` 实例的 `doFinal()` 获取最终的哈希值。
+    `byte[] result = mac.doFinal();`
+    7. 打印
+    `System.out.println(new BigInteger(1, result).toString(16));`
+  - 恢复 SecretKey 的语句就是 `new SecretKeySpec(hkey, "HmacMD5")`  
+    
+# 对称加密算法
+对称加密算法使用同一个密钥进行加密和解密，常用算法有 DES、AES 和 IDEA 等
+- 加密 `secret = encrypt(key, message);`
+- 解密 `plain = decrypt(key, secret);`
+_密钥长度由算法设计决定_
+## AES 加密
+目前应用最广泛，AES 的密钥长度是 128/192/256 位
+- ECB 模式：最简单的 AES 加密模式，它只需要一个固定长度的密钥，
+  固定的明文会生成固定的密文，这种一对一的加密方式会导致安全性降低
+- CBC 模式：它需要一个随机数作为 IV 参数，这样对于同一份明文，每次生成的密文都不同
+- 使用对称加密算法需要指定算法名称、工作模式和填充模式。
+
+# 口令加密算法
+PBE 就是 Password Based Encryption
+PBE 的作用就是把用户输入的口令和一个安全随机的口令采用杂凑后计算出真正的密钥
+`key = generate(userPassword, secureRandomPassword);`
+- PBE 算法通过用户口令和安全的随机 salt 计算出 Key，然后再进行加密；
+- Key 通过口令和安全的随机 salt 计算得出，大大提高了安全性；
+- PBE 算法内部使用的仍然是标准对称加密算法（例如 AES）。
+
+# 密钥交换算法
+DH 算法：Diffie-Hellman 算法
+_解决了密钥在双方不直接传递密钥的情况下完成密钥交换_
+- 本质：双方各自生成自己的私钥和公钥，私钥仅对自己可见，然后交换公钥，并根据自己的私钥和对方的公钥，生成最终的密钥 `secretKey`
+- DH 算法 ~~没有解决中间人攻击~~
+
+# 非对称加密算法
+加密和解密使用的不是相同的密钥，典型算法：RSA 算法
+相比对称加密的显著优点：
+- 对称加密需要协商密钥，而非对称加密可以安全地公开各自的公钥
+- 在 N 个人之间通信的时候：
+  - 使用非对称加密只需要 N 个密钥对，每个人只管理自己的密钥对。
+  - 而使用对称加密需要则需要 `N*(N-1)/2` 个密钥，因此每个人需要管理 `N-1` 个密钥，密钥管理难度大，而且非常容易泄漏。
+缺点：运算速度非常慢
+实际应用：用 AES 加密任意长度的明文，用 RSA 加密 AES 口令
+~~**只**使用非对称加密算法不能防止中间人攻击~~
+
+# 签名算法
+即**数字签名**，用发送方的私钥对原始数据进行签名，只有用发送方公钥才能通过签名验证
+- 防止伪造；
+- 防止抵赖；
+- 检测篡改
+
+# 数字证书
+数字证书就是集合了多种密码学算法，用于实现数据加解密、身份认证、签名等多种功能的一种安全标准。
+_数字证书采用链式签名认证，可以防止中间人攻击。_
+
+```
+
 @tab 13
 
 ## 🍀 多线程
