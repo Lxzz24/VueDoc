@@ -928,12 +928,195 @@ _解决了密钥在双方不直接传递密钥的情况下完成密钥交换_
 # 数字证书
 数字证书就是集合了多种密码学算法，用于实现数据加解密、身份认证、签名等多种功能的一种安全标准。
 _数字证书采用链式签名认证，可以防止中间人攻击。_
-
 ```
 
 @tab 13
 
 ## 🍀 多线程
+
+```md
+# 多线程基础
+在计算机中，我们把一个任务称为一个进程（浏览器/微信），把任务的子任务称为线程
+一个进程可以包含一个或多个线程，但至少会有一个线程。
+## 进程 VS 线程
+- 创建进程比创建线程开销大，尤其是在 Windows 系统上；
+- 进程间通信比线程间通信要慢，因为线程间通信就是读写同一个变量，速度很快。
+- 多进程稳定性比多线程高，因为在多进程的情况下，一个进程崩溃不会影响其他进程，
+  而在多线程的情况下，任何一个线程崩溃会直接导致整个进程崩溃
+## 多线程编程
+- 多线程经常需要读写共享数据，并且需要同步；
+- 多线程模型是 Java 程序最基本的并发模型；
+- 读写网络、数据库、Web 开发等都依赖 Java 多线程模型。
+
+# 创建新线程
+实例化一个 `Thread` 实例，然后调用它的 `start()` 方法
+- 方法一：从 `Thread` 派生一个自定义类，然后重写 `run()` 方法：
+      `Thread t = new MyThread();`
+  `class MyThread extends Thread {`
+      `@Override`
+      `public void run() { ... }}`
+- 方法二：创建 `Thread` 实例时，传入一个 `Runnable` 实例：
+      `Thread t = new Thread(new MyRunnable());`
+  `class MyRunnable implements Runnable {`
+      `@Override`
+      `public void run() { ... }}`
+> 在线程中调用 `Thread.sleep()`，可强迫当前线程暂停一段时间
+- 可以对线程设定优先级
+  `Thread.setPriority(int n)` // 1~10, 默认值 5
+- 注意：
+    1. _一个线程对象只能调用一次 `start()` 方法_
+    2. 线程的执行代码写在 `run()` 方法中；
+    3. 线程调度由操作系统决定，程序本身无法决定调度顺序；
+
+# 线程的状态
+- Java 线程对象 `Thread` 的状态包括： `New`、`Runnable`、`Blocked`、`Waiting`、`Timed Waiting` 和 `Terminated` ；
+- 通过对另一个线程对象调用 `join()` 方法可以等待其执行结束；
+    - 可以指定等待时间，超过等待时间线程仍然没有结束就不再等待；
+- 对已经运行结束的线程调用 `join()` 方法会立刻返回。
+
+# 中断线程
+- 对目标线程调用 `interrupt()` 方法可以请求中断一个线程，目标线程通过检测 `isInterrupted()` 标志获取自身是否已中断。如果目标线程处于等待状态，该线程会捕获到 `InterruptedException` ；
+- 目标线程检测到 `isInterrupted()` 为 `true` 或者捕获了 `InterruptedException` 都应该立刻结束自身线程；
+- 通过标志位判断需要正确使用 `volatile` 关键字；
+- `volatile` 关键字解决了共享变量在线程间的可见性问题。
+
+# 守护线程
+指为其他线程服务的线程，JVM 退出时，不必关心守护线程是否已结束
+`Thread t = new MyThread();`
+`t.setDaemon(true);` // 
+`t.start();`
+守护线程不能持有任何需要关闭的资源
+
+# 线程同步
+- 多线程**同时**读写共享变量时，可能会造成逻辑错误，因此需要通过 `synchronized` 同步；
+- 同步的本质就是给指定对象加锁，加锁后才能继续执行后续代码；
+- 注意加锁对象必须是同一个实例；JVM 只保证同一个锁在任意时刻只能被一个线程获取；
+- 对 JVM 定义的单个原子操作不需要同步，不可变对象无需同步
+- 多线程同时执行的是**方法**
+_成员变量能被多线程同时读写，局部变量只有当前线程可见_（一般情况）
+
+# 同步方法 
+- 用 `synchronized` 修饰方法可以把整个方法变为同步代码块，`synchronized` 方法加锁对象是 `this`；
+- 通过合理的设计和数据封装可以让一个类变为 “线程安全”；
+
+# 死锁
+Java 的线程锁是可重入锁，即能被同一个线程反复获取的锁。
+获取锁的时候，不但要判断是否是第一次获取，还要记录这是第几次获取。
+**死锁**：两个线程各自持有不同的锁，然后各自试图获取对方手里的锁，造成了双方无限等待下去
+如何避免死锁：线程获取锁的顺序要一致
+
+# 使用 wait 和 notify
+**多线程协调运行的原则**：_当条件不满足时，线程进入等待状态；当条件满足时，线程被唤醒，继续执行任务_。
+- 在 `synchronized` 内部可以调用 `wait()` 使线程进入等待状态；
+- 必须在已获得的锁对象上调用 `wait()` 方法；
+- 在 `synchronized` 内部可以调用 `notify()` 或 `notifyAll()` 唤醒其他等待线程；
+- 必须在已获得的锁对象上调用 `notify()` 或 `notifyAll()` 方法；
+- 已唤醒的线程还需要重新获得锁后才能继续执行。
+
+# 使用 ReentrantLock
+- ReentrantLock 可以替代 synchronized 进行同步，更安全；
+`private final Lock lock = new ReentrantLock();`
+`lock.lock();` // 上锁
+`lock.unlock();` // 解锁
+- ReentrantLock 需要考虑异常，先获取到锁，再进入 `try {...}` 代码块，最后使用 finally 中释放锁
+- 和 synchronized 不同的是，ReentrantLock 可以使用 `tryLock()` 尝试获取锁
+`lock.tryLock(1, TimeUnit.SECONDS)`
+
+# 使用 Condition 
+- Condition 对象必须从 Lock 对象获取。
+- 使用 Condition 对象来实现 wait 和 notify 的功能：
+`private final Condition condition = lock.newCondition();`
+`condition.signalAll();` // 唤醒
+`condition.await();` // 等待
+- `await()` 可以在等待指定时间后，如果还没有被其他线程唤醒，可以自己醒来
+`condition.await(1, TimeUnit.SECOND)`
+
+# 使用 ReadWriteLock 
+使用 ReadWriteLock 可以提高读取效率：
+1. 只允许一个线程写入；
+2. 允许多个线程在没有写入时同时读取；
+3. 适合读多写少的场景。
+`private final ReadWriteLock rwlock = new ReentrantReadWriteLock();`
+`private final Lock rlock = rwlock.readLock();`
+`private final Lock wlock = rwlock.writeLock();`
+_潜在的问题：读的过程中不允许写（悲观锁）_
+
+# 使用 StampedLock 
+把读锁细分为乐观读和悲观读，读的过程中也允许获取写锁后写入（乐观锁）
+_`StampedLock` 是不可重入锁_
+`long stamp = stampedLock.writeLock();` // 获取写锁
+`long stamp = stampedLock.tryOptimisticRead();` // 获得一个乐观读锁
+`stampedLock.validate(stamp)` // 如果乐观读锁后没有其他写锁发生，返回 true
+`stamp = stampedLock.readLock();` // 获取一个悲观读锁
+
+# 使用 Semaphore 
+对某一受限资源进行限流访问，可以使用 Semaphore，保证同一时刻最多有 N 个线程能访问
+`final Semaphore semaphore = new Semaphore(3);`
+1. 使用 Semaphore 先调用 `semaphore.acquire();` 获取，
+2. 然后通过 `try ... finally{ semaphore.release(); }` 释放。
+可以使用 `tryAcquire()` 指定等待时间
+
+# 使用 Concurrent 集合
+针对 List、Map、Set、Deque 等，`java.util.concurrent` 包也提供了对应的并发集合类：
+- CopyOnWriteArrayList
+- ConcurrentHashMap
+- CopyOnWriteArraySet
+- ArrayBlockingQueue
+- LinkedBlockingQueue
+所有的同步和加锁的逻辑都在集合内部实现
+_使用 java.util.concurrent 包提供的线程安全的并发集合可以大大简化多线程编程_
+
+# 使用 Atomic 
+使用 `java.util.concurrent.atomic` 提供的原子操作可以简化多线程编程：
+- 原子操作实现了无锁的线程安全；
+- 适用于计数器，累加器等。
+
+# 使用线程池 
+线程池内部维护了若干个线程，可以高效执行大量小任务；
+- 没有任务的时候，这些线程都处于等待状态。
+- 如果有新任务，就分配一个空闲线程执行。
+- 如果所有线程都处于忙碌状态，新任务要么放入队列等待，要么增加一个新线程进行处理。
+Java 标准库提供了 `ExecutorService` 接口表示线程池，常用实现类有
+- `FixedThreadPool`：线程数固定的线程池；
+- `CachedThreadPool`：线程数根据任务动态调整的线程池；
+- `SingleThreadExecutor`：仅单线程执行的线程池。
+- `ScheduledThreadPool`：可以定期调度多个任务（可定期反复执行）
+    - FixedRate 是指任务总是以固定时间间隔触发，不管任务执行多长时间
+    - FixedDelay 是指上一次任务执行完毕后，等待固定的时间间隔，再执行下一次任务
+必须调用 `shutdown()` 关闭 `ExecutorService`；
+
+# 使用 Future 
+对线程池提交一个 `Callable` 任务，可以获得一个 `Future` 对象；
+可以用 `Future` 在将来某个时刻获取结果。
+
+# 使用 CompletableFuture（❌ 不太懂）
+`CompletableFuture` 可以指定异步处理流程：
+- `thenAccept()` 处理正常结果；
+- `exceptional()` 处理异常结果；
+- `thenApplyAsync()` 用于串行化另一个 `CompletableFuture`；
+- `anyOf()` 和 `allOf()` 用于并行化多个 `CompletableFuture`
+
+# 使用 ForkJoin 
+- Fork/Join 是一种基于 “分治” 的算法：通过分解任务，并行执行，最后合并结果得到最终结果。
+- `ForkJoinPool` 线程池可以把一个大任务分拆成小任务并行执行，任务类必须继承自 `RecursiveTask` 或 `RecursiveAction`。
+- 使用 Fork/Join 模式可以进行并行计算以提高效率。
+
+# 使用 ThreadLocal 
+- `ThreadLocal` 表示线程的 “局部变量”，它确保每个线程的 `ThreadLocal` 变量都是各自独立的；
+- `ThreadLocal` 适合在一个线程的处理流程中保持上下文（避免了同一参数在所有方法中传递）；
+- 使用 `ThreadLocal` 要用 `try ... finally` 结构，并在 `finally` 中清除。
+
+# 使用虚拟线程
+Java 19 引入，为了能高效执行 IO 密集型任务
+- IO 密集型任务：真正由 CPU 执行的代码消耗的时间非常少，线程的大部分时间都在等待 IO
+- 可以高效通过少数线程去调度大量虚拟线程
+- 虚拟线程在执行到 IO 操作或 Blocking 操作时，会自动切换到其他虚拟线程执行，
+  从而避免当前线程等待，能最大化线程的执行效率；
+- 虚拟线程使用普通线程相同的接口，最大的好处是无需修改任何代码，
+  就可以将现有的 IO 操作异步化获得更大的吞吐能力。
+- 计算密集型任务不应使用虚拟线程，只能通过增加 CPU 核心解决，或者利用分布式计算资源。
+
+```
 
 @tab 14
 

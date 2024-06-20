@@ -1,10 +1,9 @@
 ---
 title: Java 教程
 icon: java
-sidebarDepth: 1
+sidebarDepth: 0
 author: liaoxuefeng
 ---
-
 
 这是专门针对小白的零基础 Java 教程。
 
@@ -46,5 +45,3 @@ Java 语言常年霸占着三大市场：
 不要犹豫了！现在开始学习 Java，从入门到架构师！
 
 ![win-java](assets/l.png)
-
-
