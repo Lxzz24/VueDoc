@@ -11,5 +11,5 @@ tag: Java
 Java 为关系数据库定义了一套标准的访问接口：JDBC（Java Database Connectivity），本章我们介绍如何在 Java 程序中使用 JDBC。
 
 
-![20221123105225](assets/20221123105225.png)
+![](assets/20221123105225.png)
 

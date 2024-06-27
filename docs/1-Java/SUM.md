@@ -1518,20 +1518,70 @@ JavaScript Object Notation
 
 ## 🍀 JDBC
 
+```md
+JDBC（Java Database Connectivity）
+# JDBC 简介 
+
+# JDBC 查询 
+
+# JDBC 更新 
+
+# JDBC 事务 
+
+# JDBC Batch 
+
+# JDBC 连接池
+```
+
 @tab 18
 
 ## 🍀 函数式编程
+
+```md
+# Lambda 基础 
+
+# 方法引用 
+
+# 使用 Stream
+```
 
 @tab 19
 
 ## 🍀 设计模式
 
+```md
+# 创建型
+## 工厂方法 
+
+## 抽象工厂 
+
+## 生成器 
+
+## 原型
+
+## 单例
+
+# 结构型
+## 适配器 桥接 组合 装饰器 外观 享元 代理
+
+# 行为型
+## 责任链 命令 解释器 迭代器 中介 备忘录 备忘录 状态 策略 模板方法 访问者
+```
+
 @tab 20
 
 ## 🍀 WEB 开发
 
+```md
+# Web 基础 Servlet 入门 Servlet 开发 Servlet 进阶 JSP 开发 MVC 开发 MVC 开发 使用 Filter 使用 Listener 部署
+```
+
 @tab 21
 
 ## 🍀 Spring 开发
+
+```md
+# IoC 容器 使用 AOP 访问数据库 开发 Web 应用 集成第三方组件
+```
 
 ::::
