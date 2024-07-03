@@ -1300,12 +1300,56 @@ JDBC（Java Database Connectivity）是 Java 程序访问数据库的标准接�
 ## 🍀 函数式编程
 
 ```md
-
 # Lambda 基础
+从 Java 8 开始，可以用 Lambda 表达式替换**单方法接口**(FunctionalInterface)
 
 # 方法引用
+指如果某个方法签名和接口恰好一致，就可以直接传入方法引用
+- `FunctionalInterface` 允许传入：
+  - 接口的实现类（传统写法，代码较繁琐）；
+  - Lambda 表达式（只需列出参数名，由编译器推断类型）；
+  - 符合方法签名的静态方法；
+  - 符合方法签名的实例方法（实例类型被看做第一个参数类型）；
+  - 符合方法签名的构造方法（实例类型被看做返回类型）。
+- `FunctionalInterface` 不强制继承关系，不需要方法名称相同，只要求方法参数（类型和数量）与方法返回类型相同，即认为方法签名相同。
 
 # 使用 Stream
+## 了解 Stream
+java.util.stream
+Stream 的特点：
+- 可以 **“存储”** 有限个或无限个元素
+- 一个 `Stream` 可以轻易地转换为另一个 `Stream`，而不是修改原 `Stream` 本身
+- 真正的计算通常发生在最后结果的获取，即惰性计算
+    - 一个 `Stream` 转换为另一个 `Stream` 时，实际上只存储了转换规则，
+      并没有任何计算发生
+Stream API 的**基本用法**就是：
+_创建一个 `Stream`，然后做若干次转换，最后调用一个求值方法获取真正计算的结果_
+
+## 创建 Stream
+1. `Stream.of()`
+
+## 使用 map
+- `map()` 方法用于将一个 Stream 的每个元素映射成另一个元素并转换成一个新的 Stream；
+- 可以将一种元素类型转换成另一种元素类型
+
+## 使用 filter
+- 使用 `filter()` 方法可以对一个 `Stream` 的每个元素进行测试，通过测试的元素被过滤后生成一个新的 `Stream`。
+
+## 使用 reduce
+- `reduce()` 方法将一个 `Stream` 的每个元素依次作用于 `BinaryOperator`，并将结果合并。
+- `reduce()` 是聚合方法，聚合方法会立刻对 `Stream` 进行计算。
+
+## 输出集合
+- `Stream` 可以输出为集合：
+- `Stream` 通过 `collect()` 方法可以方便地输出为 `List`、`Set`、`Map`，还可以分组输出。
+
+## 其他操作
+`Stream` 提供的常用操作有：
+- 转换操作：`map()`，`filter()`，`sorted()`，`distinct()`；
+- 合并操作：`concat()`，`flatMap()`；
+- 并行处理：`parallel()`；
+- 聚合操作：`reduce()`，`collect()`，`count()`，`max()`，`min()`，`sum()`，`average()`；
+- 其他操作：`allMatch()`, `anyMatch()`, `forEach()`。
 ```
 
 @tab 19
