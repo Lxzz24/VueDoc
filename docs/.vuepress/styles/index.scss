@@ -1,38 +1,38 @@
 // place your custom styles here
 h1 {
   font-weight: bold;
-  text-shadow: 5px 5px 5px #002c7eab;
+  text-shadow: 5px 5px 5px rgba(2, 0, 133, 0.5);
   color: #486fb8;
   // color: #4169e1;
   // 手札体-简
-  font-family: "Hannotate SC", Georgia, Tahoma, Arial, "Times New Roman", sans-serif;
+  //font-family: "Comic Sans MS", Consolas, "Wawati SC", "Hannotate SC", Georgia, Tahoma, Arial,  sans-serif;
 }
 h2 {
-  text-shadow: 5px 5px 5px #0c4d28cb;
+  text-shadow: 5px 5px 5px rgba(8, 88, 15, 0.5);
   height: 1.5em;
   color: #2e8b57; // 海洋绿
   // 娃娃体
-  font-family: "Wawati SC", Georgia, Tahoma, Arial, "Hanzipen SC", "Times New Roman", sans-serif;
+  //font-family: "Comic Sans MS", "Wawati SC", Georgia, Tahoma, Arial, "Hanzipen SC", "Times New Roman", sans-serif;
 }
 h3 {
   color: #ff4500;
-  text-shadow: 5px 5px 5px #750000a7;
+  text-shadow: 5px 5px 5px rgba(222, 34, 34, 0.5);
   height: 1.5em;
   // 娃娃体
-  font-family: "Wawati SC", Georgia, Tahoma, Arial, "Hanzipen SC", "Times New Roman", sans-serif;
+  //font-family: "Comic Sans MS", "Wawati SC", Georgia, Tahoma, Arial, "Hanzipen SC", "Times New Roman", sans-serif;
 }
 h4,
 h5,
 h6 {
   color: rgb(171, 82, 230);
   height: 1.5em;
-  text-shadow: 5px 5px 5px rgba(59, 0, 98, 0.5);
-  font-family: "Hannotate SC", Georgia, Tahoma, Arial, "Times New Roman", sans-serif;
+  text-shadow: 5px 5px 5px rgba(59, 0, 98, 0.3);
+  //font-family: "Hannotate SC", Georgia, Tahoma, Arial, "Times New Roman", sans-serif;
 }
 
 code {
   // 手札体-简
-  font-family: "Comic Sans MS", Georgia, Tahoma, Arial, sans-serif;
+  //font-family: "Comic Sans MS", Georgia, Tahoma, Arial, sans-serif;
   font-size: 14px;
   //   color: #e96a00;
   background-color: #dfdfdf;
@@ -42,7 +42,7 @@ strong {
   font-size: 16px;
   color: #ff4500; // 橙红色
   // 手札体-简
-  font-family: "Hannotate SC", Georgia, Tahoma, Arial, sans-serif;
+  //font-family: "Hannotate SC", Georgia, Tahoma, Arial, sans-serif;
 }
 
 em {
@@ -52,7 +52,7 @@ em {
   font-weight: bold;
   color: #45b97c; // 绿
   // 手札体-简
-  font-family: "Hannotate SC", Georgia, Tahoma, Arial, sans-serif;
+  //font-family: "Hannotate SC", Georgia, Tahoma, Arial, sans-serif;
 }
 u {
   //下划线
@@ -60,7 +60,7 @@ u {
   font-size: 16px;
   color: #6495ed;
   // 手札体-简
-  font-family: "Hannotate SC", Georgia, Tahoma, Arial, sans-serif;
+  //font-family: "Hannotate SC", Georgia, Tahoma, Arial, sans-serif;
 }
 s {
   //删除线
@@ -74,7 +74,7 @@ blockquote {
   border-color: #6495ed !important; // 矢车菊的蓝色 100,149,237
   background-color: rgba(100, 149, 237, 0.1) !important;
   // 手札体-简
-  font-family: "Hannotate SC", Georgia, Tahoma, Arial, sans-serif;
+  //font-family: "Hannotate SC", Georgia, Tahoma, Arial, sans-serif;
 }
 
 ul,
@@ -119,4 +119,51 @@ hr {
   vertical-align: top;
   margin-right: 1%;
   margin-left: 1%;
+}
+
+// 设置字体
+$font-family: "LXGW Wenkai", sans-serif;
+$font-family-mono: "LXGW WenKai Mono", monospace;
+
+// 设置全局字体
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+div,
+a,
+ul,
+ol,
+li,
+table,
+th,
+td,
+pre,
+code,
+kbd,
+samp {
+  font-family: $font-family;
+}
+
+// 设置标题的字体和粗细
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+// 设置代码的字体
+code,
+pre,
+kbd,
+samp {
+  font-family: $font-family-mono;
 }
