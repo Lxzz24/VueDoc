@@ -2,6 +2,7 @@ import { sidebar } from "vuepress-theme-hope";
 
 export default sidebar({
     "/": [
+        "0-article/打卡.md",
         {
             text: "文章",
             icon: "article",
@@ -50,9 +51,10 @@ export default sidebar({
                     prefix: "strategy/",
                     link: "strategy/",
                     collapsible: true,
-                    children: ["0.md", "1.md", "2.md", "3.md", "4.md"],
+                    children: ["0.md", "1.md", "2.md", "3.md", "4.md", "5.md"],
                 },
             ],
+
         },
     ],
     "/1-Java/": [
@@ -356,7 +358,11 @@ export default sidebar({
         },
 
     ],
-    "/99-tools": [
+    "/10-project/": [
+        "",
+        "UserCentor.md",
+    ],
+    "/99-tools/": [
         "linux.md",
         "centos.md",
         {

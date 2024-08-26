@@ -18,6 +18,11 @@ export default navbar([
         link: "/2-软考/",
     },
     {
+        text: "项目",
+        icon: "software",
+        link: "/10-project/",
+    },
+    {
         text: "开发工具",
         icon: "tool",
         link: "/99-tools/",
@@ -26,11 +31,6 @@ export default navbar([
         text: "文档",
         icon: "blog",
         link: "/0-article/",
-    },
-    {
-        text: "打卡",
-        icon: "check",
-        link: "/打卡.md",
     },
     {
         text: "V2 文档",
